@@ -1,0 +1,326 @@
+@import "_null.sass"
+
+*
+	user-select: none
+body
+	position: fixed
+
+	width: 100vw
+	height: 100vh
+	overflow: hidden
+
+	display: flex
+	justify-content: center
+	align-items: center
+
+	background-color: #222
+.frame
+	position: absolute
+
+	width: 1200px
+	height: 650px
+	background: linear-gradient(to bottom, blue 0%, #77ddff 100%)
+
+.loader
+	opacity: 1
+	transform: scale(1)
+
+	position: absolute
+	z-index: 3
+
+	width: 100%
+	height: 100%
+
+	background-image: url(img/loader.jpg)
+	background-size: 100%
+
+	&-off
+		opacity: 0
+		transform: scale(0)
+
+	&__progress
+		position: absolute
+		top: 38%
+		left: 32%
+
+		height: 229px
+
+		&_empty
+			width: 470px
+			background-image: url(img/empty.png)
+
+		&_full
+			width: 0
+			overflow: hidden
+			background-image: url(img/full.png)
+
+			transition: width 2s 1s
+			
+		&_full-ready
+			width: 470px
+			overflow: hidden
+			background-image: url(img/full.png)
+
+			transition: width 2s 1s
+
+.wrapper
+	position: absolute
+	z-index: 1
+
+	width: 100%
+	height: 100%
+	opacity: 1
+
+.diff-sel
+	opacity: 0
+	transform: scale(0)
+
+	position: absolute
+	z-index: 1
+
+	width: 100%
+	height: 100%
+
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+
+	color: #ffffff
+	font-family: sans-serif
+	font-weight: 900
+	font-size: 20px
+
+	&-on
+		opacity: 1
+		transform: scale(1)
+
+	&__p
+		padding: 20px
+
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+
+		text-align: center
+
+		&_1
+			width: 600px
+		&_2
+			width: 600px
+		&_3
+			width: 700px
+		&_4
+			width: 700px
+
+	&__span
+		width: 600px
+		text-align: center
+		font-size: 24px
+
+	&__play
+		width: 450px
+		height: 164px
+
+		background-image: url(img/start.png)
+		background-size: 100%
+
+		cursor: pointer
+
+.world
+	opacity: 1
+
+	position: absolute
+	z-index: 0
+	top: 0
+	left: 0
+
+	width: 100%
+	height: 100%
+	overflow: hidden
+
+	&__snow
+		position: absolute
+		bottom: -50px
+		left: 0px
+
+		&_1
+			z-index: 0
+			bottom: 50px
+
+			background-image: url(img/snow3.png)
+			width: 1803px
+			height: 37px
+
+			animation: snow1 10s infinite linear
+
+		&_2
+			z-index: 2
+			background-image: url(img/snow2.png)
+			width: 1200px
+			height: 100px
+		&_3
+			z-index: 6
+			background-image: url(img/snow1.png)
+			bottom: 0px
+			left: 0px
+			width: 6620px
+			height: 100px
+
+			animation: snow3 4s infinite linear
+
+	@keyframes snow3
+		0%
+			left: 0px
+		100%
+			left: -3310px
+
+	@keyframes snow1
+		0%
+			left: 0px
+		100%
+			left: -601px
+
+	&__tree
+		position: absolute
+		right: -300px
+
+		&_front
+			z-index: 5
+			bottom: -10px
+			transform-origin: 50% 100%
+			transform: scale(0.7)
+		&_back
+			z-index: 1
+			bottom: 25px
+			transform: scale(1)
+
+		&_1
+			background-image: url(img/tree-1.png)
+			width: 295px
+			height: 317px
+			animation: trees 2.25s 3s infinite linear
+
+		&_2
+			background-image: url(img/tree-2.png)
+			width: 127px
+			height: 495px
+			animation: trees 2.5s 10s infinite linear
+
+		&_3
+			background-image: url(img/tree-3.png)
+			width: 283px
+			height: 444px
+			animation: trees 2.75s 15s infinite linear
+
+		&_4
+			background-image: url(img/tree-1.png)
+			width: 295px
+			height: 317px
+			animation: trees 7s 5s infinite linear
+
+		&_5
+			background-image: url(img/tree-2.png)
+			width: 127px
+			height: 495px
+			animation: trees 8s 10s infinite linear
+
+		&_6
+			background-image: url(img/tree-3.png)
+			width: 283px
+			height: 444px
+			animation: trees 9s 15s infinite linear
+
+		&_new
+			background-image: url(img/tree-1.png)
+			bottom: 50px
+			right: -300px
+			width: 154px
+			height: 251px
+			transition: right 0.5s
+
+	@keyframes trees
+		0%
+			right: -300px
+		100%
+			right: 1250px
+
+	&__item
+		z-index: 4
+		position: absolute
+		bottom: 50px
+		right: -300px
+
+		width: 150px
+		height: 200px
+		transition: right 1.5s linear
+
+		&-upper
+			bottom: 400px
+
+		&-moved
+			right: 1250px
+
+		&_course
+			background-image: url(img/course.png)
+
+		&_zachet
+			background-image: url(img/zachet.png)
+
+		&_rgr
+			background-image: url(img/rgr.png)
+
+	@keyframes items
+		0%
+			right: -300px
+		100%
+			right: 1250px
+
+	&__student
+		opacity: 0
+
+		position: absolute
+		z-index: 3
+		bottom: 50px
+		left: 50px
+
+		width: 249px
+		height: 251px
+
+		background-image: url(img/stud.png)
+
+		transition: bottom 0.55s ease-in-out
+
+		&-jump
+			bottom: 400px
+			transition: bottom 0.3s ease-in-out
+
+.count
+	position: absolute
+	left: 20px
+	top: 20px
+	font-size: 40px
+	font-family: sans-serif
+	color: white
+
+.gameend
+	opacity: 0
+	transform: scale(0)
+
+	position: absolute
+	width: 100%
+	height: 100%
+
+	background-image: 
+
+
+
+.gameover
+	opacity: 0
+	transform: scale(0)
+
+	position: absolute
+	width: 100%
+	height: 100%
+

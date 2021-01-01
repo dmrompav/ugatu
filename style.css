@@ -1,0 +1,390 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+*:focus, *:active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+button {
+  padding: 0px;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited, a:active {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+* {
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+body {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.frame {
+  position: absolute;
+  width: 1200px;
+  height: 650px;
+  background: linear-gradient(to bottom, blue 0%, #77ddff 100%);
+}
+
+.loader {
+  opacity: 1;
+  transform: scale(1);
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/loader.jpg);
+  background-size: 100%;
+}
+.loader-off {
+  opacity: 0;
+  transform: scale(0);
+}
+.loader__progress {
+  position: absolute;
+  top: 38%;
+  left: 32%;
+  height: 229px;
+}
+.loader__progress_empty {
+  width: 470px;
+  background-image: url(img/empty.png);
+}
+.loader__progress_full {
+  width: 0;
+  overflow: hidden;
+  background-image: url(img/full.png);
+  transition: width 2s 1s;
+}
+.loader__progress_full-ready {
+  width: 470px;
+  overflow: hidden;
+  background-image: url(img/full.png);
+  transition: width 2s 1s;
+}
+
+.wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.diff-sel {
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+}
+.diff-sel-on {
+  opacity: 1;
+  transform: scale(1);
+}
+.diff-sel__p {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.diff-sel__p_1 {
+  width: 600px;
+}
+.diff-sel__p_2 {
+  width: 600px;
+}
+.diff-sel__p_3 {
+  width: 700px;
+}
+.diff-sel__p_4 {
+  width: 700px;
+}
+.diff-sel__span {
+  width: 600px;
+  text-align: center;
+  font-size: 24px;
+}
+.diff-sel__play {
+  width: 450px;
+  height: 164px;
+  background-image: url(img/start.png);
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.world {
+  opacity: 1;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.world__snow {
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+}
+.world__snow_1 {
+  z-index: 0;
+  bottom: 50px;
+  background-image: url(img/snow3.png);
+  width: 1803px;
+  height: 37px;
+  animation: snow1 10s infinite linear;
+}
+.world__snow_2 {
+  z-index: 2;
+  background-image: url(img/snow2.png);
+  width: 1200px;
+  height: 100px;
+}
+.world__snow_3 {
+  z-index: 6;
+  background-image: url(img/snow1.png);
+  bottom: 0px;
+  left: 0px;
+  width: 6620px;
+  height: 100px;
+  animation: snow3 4s infinite linear;
+}
+@keyframes snow3 {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -3310px;
+  }
+}
+@keyframes snow1 {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -601px;
+  }
+}
+.world__tree {
+  position: absolute;
+  right: -300px;
+}
+.world__tree_front {
+  z-index: 5;
+  bottom: -10px;
+  transform-origin: 50% 100%;
+  transform: scale(0.7);
+}
+.world__tree_back {
+  z-index: 1;
+  bottom: 25px;
+  transform: scale(1);
+}
+.world__tree_1 {
+  background-image: url(img/tree-1.png);
+  width: 295px;
+  height: 317px;
+  animation: trees 2.25s 3s infinite linear;
+}
+.world__tree_2 {
+  background-image: url(img/tree-2.png);
+  width: 127px;
+  height: 495px;
+  animation: trees 2.5s 10s infinite linear;
+}
+.world__tree_3 {
+  background-image: url(img/tree-3.png);
+  width: 283px;
+  height: 444px;
+  animation: trees 2.75s 15s infinite linear;
+}
+.world__tree_4 {
+  background-image: url(img/tree-1.png);
+  width: 295px;
+  height: 317px;
+  animation: trees 7s 5s infinite linear;
+}
+.world__tree_5 {
+  background-image: url(img/tree-2.png);
+  width: 127px;
+  height: 495px;
+  animation: trees 8s 10s infinite linear;
+}
+.world__tree_6 {
+  background-image: url(img/tree-3.png);
+  width: 283px;
+  height: 444px;
+  animation: trees 9s 15s infinite linear;
+}
+.world__tree_new {
+  background-image: url(img/tree-1.png);
+  bottom: 50px;
+  right: -300px;
+  width: 154px;
+  height: 251px;
+  transition: right 0.5s;
+}
+@keyframes trees {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 1250px;
+  }
+}
+.world__item {
+  z-index: 4;
+  position: absolute;
+  bottom: 50px;
+  right: -300px;
+  width: 150px;
+  height: 200px;
+  transition: right 1.5s linear;
+}
+.world__item-upper {
+  bottom: 400px;
+}
+.world__item-moved {
+  right: 1250px;
+}
+.world__item_course {
+  background-image: url(img/course.png);
+}
+.world__item_zachet {
+  background-image: url(img/zachet.png);
+}
+.world__item_rgr {
+  background-image: url(img/rgr.png);
+}
+@keyframes items {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 1250px;
+  }
+}
+.world__student {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  bottom: 50px;
+  left: 50px;
+  width: 249px;
+  height: 251px;
+  background-image: url(img/stud.png);
+  transition: bottom 0.55s ease-in-out;
+}
+.world__student-jump {
+  bottom: 400px;
+  transition: bottom 0.3s ease-in-out;
+}
+
+.count {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 40px;
+  font-family: sans-serif;
+  color: white;
+}
+
+.gameend {
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.gameover {
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
